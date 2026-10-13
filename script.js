@@ -10,8 +10,14 @@ const $employee ={
     adress: {
         street: "123 Steer",
         city: "Merlot", 
+    },
+    selfIntro:function(){
+        const introTemplate = `Hi, my name is ${this.name}. I have working in ${this.departement} since ${this.hireYear}.`
+        return introTemplate
     }
+    
 }
+
 const $empSection = document.getElementById("employee")
 $empSection.insertAdjacentHTML("afterbegin", `<h2> Welcome ${$employee.name}!</h2>`)
 $employee.departement = "Innovation and Research"
@@ -31,4 +37,11 @@ const $empSkills = $employee.skills
 $empSection.insertAdjacentHTML("beforeend",`<p> ${$employee.name} is skilled in ${$empSkills.join(", ")}</p>`)
 
 $empSection.insertAdjacentHTML("beforeend",`<p>  Adress ${$employee.adress.street} lives at ${$employee.adress.street}, ${$employee.adress.city}</p>`)
+$empSection.insertAdjacentHTML("beforeend",`<p> ${$employee.selfIntro()}</p>`)
 
+console.log(Object.keys($employee))
+console.log(Object.values($employee))
+console.log(Object.entries($employee))
+
+$employee.pronouns="they/them"
+$empSection.insertAdjacentHTML("beforeend",`<p> ${$employee.name} uses ${$employee.pronouns} as pronouns</p>`)
